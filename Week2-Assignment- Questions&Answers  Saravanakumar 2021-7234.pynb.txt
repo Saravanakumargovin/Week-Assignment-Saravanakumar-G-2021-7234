@@ -1,0 +1,815 @@
+{
+ "cells": [
+  {
+   "cell_type": "markdown",
+   "id": "70ed1871-3a39-402f-a6eb-276ec353e111",
+   "metadata": {},
+   "source": [
+    "### WEEK-2: Assignment  - Probability Distribution"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "68f282ec-0186-47f9-873a-f24a9fe64d4e",
+   "metadata": {},
+   "source": [
+    "### 1.Calculate Probabilities Using a Binomial Distribution"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "c57ced36-9c22-40c8-b6e3-d47b31e1b60a",
+   "metadata": {},
+   "source": [
+    "Q1.1. Pavan kumar makes 65% of his free-throw attempts. If he shoots 15 free throws, what is the probability that he makes exactly 10?"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 3,
+   "id": "0b456421-93e1-478e-abe6-4a0c18b6379f",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "from scipy.stats import binom"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 5,
+   "id": "f26433a7-cfb5-49e1-ae5f-4ea657bf7cbf",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "0.2123386834880357"
+      ]
+     },
+     "execution_count": 5,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "binom.pmf(k=10,n=15,p=0.65)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "5662294d-7743-4e5d-9bc4-78c8d9098ccb",
+   "metadata": {},
+   "source": [
+    "Q1.2.Shivam flips a fair coin 6 times. What is the probability that the coin lands on heads 3 times or fewer?"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 2,
+   "id": "5fec5852-9a1e-4f2a-8d6d-485c6f3d4ebc",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "from scipy.stats import binom"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 5,
+   "id": "48f34d09-4318-4c3a-8150-c912d56b98fc",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "0.31249999999999983"
+      ]
+     },
+     "execution_count": 5,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "binom.pmf(n=6,k=3,p=0.50)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "2a4c3e03-c031-480d-ac2e-be4d1c5c09ef",
+   "metadata": {},
+   "source": [
+    "Q1.3.It is known that 65% of individuals support a certain law. If 10 individuals are randomly selected, what is the probability that between 3 and 6 of them support the law?"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 6,
+   "id": "bda9e75e-76ee-4c2b-92d3-b08716f6f09c",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "from scipy.stats import binom\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 7,
+   "id": "7ebdbfc6-12d1-4885-adf2-776109dd45e4",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "0.026024280496484368"
+      ]
+     },
+     "execution_count": 7,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "(binom.cdf(k=3,n=10,p=0.65) ) "
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 8,
+   "id": "be99af47-a7de-403c-9005-fc2722f2ccf3",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "0.4861729836441406"
+      ]
+     },
+     "execution_count": 8,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "(binom.cdf(k=6,n=10,p=0.65) ) "
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 10,
+   "id": "f486ca51-8619-42d3-8801-e1adc5f7f8be",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "-0.4601487031476562"
+      ]
+     },
+     "execution_count": 10,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "(binom.cdf(k=6,n=10,p=0.65))-(binom.cdf(k=3,n=10,p=0.65))"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "34419e4e-a9fe-475b-a1a3-12154b0ab15f",
+   "metadata": {},
+   "source": [
+    "## 2.Calculate Probabilities Using a Poisson Distribution"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "643ce6e9-4464-46a5-b444-7bc60b2f8ceb",
+   "metadata": {},
+   "source": [
+    "poisson.pmf(4,6)Q2.1. A store sells 4 apples per day on average. What is the probability that they will sell 6 apples on a given day? "
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 23,
+   "id": "8d9f9c42-aa08-4510-a587-c0c0d1eca583",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "from scipy.stats import poisson"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 26,
+   "id": "e287dc4a-76a5-4a0c-b0a2-a76c2531dbd6",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "0.13385261753998332"
+      ]
+     },
+     "execution_count": 26,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "poisson.pmf(4,6)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "58b05cc8-7e0e-430f-8b8d-d53b44a9223f",
+   "metadata": {},
+   "source": [
+    "Q2.2. A certain store sells seven footballs per day on average. What is the probability that this store sells four or less footballs in a given day?"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 36,
+   "id": "ac0144b4-5f8f-4f3a-8d45-446460baa0a5",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "from scipy.stats import poisson"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 37,
+   "id": "9b95b45e-b93b-4040-a160-47ad34dd2a26",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "0.17299160788207146"
+      ]
+     },
+     "execution_count": 37,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "poisson.cdf(4,7)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "1741b3e1-18ec-4df8-98c1-3d0103c96108",
+   "metadata": {},
+   "source": [
+    "Q2.3. A certain store sells 15 cans of tuna per day on average. What is the probability that this store sells more than 20 cans of tuna in a given day?"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 39,
+   "id": "1ffcff6e-142b-49c5-997d-e23f7a6a874d",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "from scipy.stats import poisson"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 41,
+   "id": "9cacda1c-508c-4670-a5e9-edea933bfc27",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "0.9170290899685397"
+      ]
+     },
+     "execution_count": 41,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "poisson.cdf(20,15)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 45,
+   "id": "ea8fbb6a-0f79-4967-a09a-c1a562cfc085",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "0.08297091003146029"
+      ]
+     },
+     "execution_count": 45,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "1-poisson.cdf(20,15)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "3ca841e9-266d-4a18-ba21-243abcd15fbc",
+   "metadata": {},
+   "source": [
+    "### 3.Calculate Probabilities Using a Uniform Distribution"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "f4daacf9-0fa1-4f5c-a198-55efc586fd5f",
+   "metadata": {},
+   "source": [
+    "Q3.1. Suppose a bus shows up at a bus stop every 20 minutes. If you arrive at the bus stop, what is the probability that the bus will show up in 8 minutes or less?"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 20,
+   "id": "420a8ccb-b926-45e3-8978-b331f1a29cf4",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "from scipy.stats import uniform"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 21,
+   "id": "59b2b5f9-4510-487e-9608-68ac24a3422a",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "0.4"
+      ]
+     },
+     "execution_count": 21,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "uniform.cdf(8,loc=0,scale=20)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "bf3bbe47-2445-4c7c-ba6e-1a6ef4e4e138",
+   "metadata": {},
+   "source": [
+    "Q3.2.The weight of a certain species of frog is uniformly distributed between 15 and 25 grams. If you randomly select a frog, what is the probability that the frog weighs between 17 and 19 grams?"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 22,
+   "id": "f1dc1e10-ec3d-4099-8d4e-572f0f3e992e",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "from scipy.stats import uniform"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 23,
+   "id": "ff918373-f83e-4735-8ee7-21e501ae21a7",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "0.4"
+      ]
+     },
+     "execution_count": 23,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "uniform.cdf(19,15,10)-uniform.cdf(17,25,10)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 65,
+   "id": "39749d40-d7a9-4fb6-84c4-9cdd473ac842",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "26.5"
+      ]
+     },
+     "execution_count": 65,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "uniform.mean(17,19)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 67,
+   "id": "8913acc1-dbbd-47dc-9dec-b2514e88ef75",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "5.773502691896257"
+      ]
+     },
+     "execution_count": 67,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "uniform.std(15,20)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "3df229d9-823c-49e6-ba78-091f6e815940",
+   "metadata": {},
+   "source": [
+    "Q3.3.The length of an NBA game is uniformly distributed between 120 and 170 minutes. What is the probability that a randomly selected NBA game lasts more than 150 minutes?"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 24,
+   "id": "648f4921-6846-499e-8d79-fd7454cc60eb",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "from scipy.stats import uniform"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 26,
+   "id": "4943c77c-19f6-43eb-812e-4499da3244be",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "1.0"
+      ]
+     },
+     "execution_count": 26,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "uniform.cdf(170,120)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 25,
+   "id": "d56bc082-d5a0-477b-90bb-1e04ccbcbb87",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "1.0"
+      ]
+     },
+     "execution_count": 25,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "uniform.cdf(150,120)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 29,
+   "id": "83ce29dc-0b8c-4682-9af3-18a8f3ee1545",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "0.6"
+      ]
+     },
+     "execution_count": 29,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "uniform.cdf(150,120,50)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 30,
+   "id": "3cfd41cd-0927-498a-b8f6-b0c9086943dd",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "0.4"
+      ]
+     },
+     "execution_count": 30,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "1-uniform.cdf(150,120,50)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "fa7fa91c-254f-42c1-9e5a-a27392cdeded",
+   "metadata": {},
+   "source": [
+    "### 4.Calculate Probabilities Using a Normal Distribution"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "d6659416-4aea-4185-993a-b5e84aee7435",
+   "metadata": {},
+   "source": [
+    "Q4.1.A radar unit is used to measure speeds of cars on a motorway. The speeds are normally distributed with a mean of 90 km/hr and a standard deviation of 10 km/hr. What is the probability that a car picked at random is travelling at more than 100 km/hr?"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 37,
+   "id": "0737e299-c3ea-49d4-bb23-27aeef12fe25",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "from scipy.stats import norm"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 31,
+   "id": "5201703a-2559-4963-81f1-08d0a0a61f9f",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "0.8413447460685429"
+      ]
+     },
+     "execution_count": 31,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "norm.cdf(100,90,10)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 32,
+   "id": "d28c2803-f818-4402-a964-99fd1e6ea30e",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "0.15865525393145707"
+      ]
+     },
+     "execution_count": 32,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "1-norm.cdf(100,90,10)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "4f2af1e3-08b1-4596-88a9-7a29be6f64cd",
+   "metadata": {},
+   "source": [
+    "Q4.2.For a certain type of computers, the length of time bewteen charges of the battery is normally distributed with a mean of 50 hours and a standard deviation of 15 hours. John owns one of these computers and wants to know the probability that the length of time will be between 50 and 70 hours."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 1,
+   "id": "b3486716-2ae4-45c3-afcd-fe7add29824d",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "from scipy.stats import norm"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 6,
+   "id": "aafb3169-f449-4325-96e7-a306c7998165",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "0.9087887802741321"
+      ]
+     },
+     "execution_count": 6,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "norm.cdf(70,50,15)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 7,
+   "id": "9a7518ba-068c-4592-a6c4-2172d71c6f88",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "0.5"
+      ]
+     },
+     "execution_count": 7,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "norm.cdf(50,50,15)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 8,
+   "id": "67130194-2e6b-4482-9efb-bcc25a911ff4",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "0.4087887802741321"
+      ]
+     },
+     "execution_count": 8,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "norm.cdf(70,50,15)-norm.cdf(50,50,15)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "bfd4157b-c813-4f40-8e2d-bd51c646fc15",
+   "metadata": {},
+   "source": [
+    "\n",
+    "Q4.3.Entry to a certain University is determined by a national test. The scores on this test are normally distributed with a mean of 500 and a standard deviation of 100. Tom wants to be admitted to this university and he knows that he must score better than at least 70% of the students who took the test. Tom takes the test and scores 585. Will he be admitted to this university?"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 14,
+   "id": "172df528-b3f6-45a5-a3b6-37dba6d2642f",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "from scipy.stats import norm"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 15,
+   "id": "5cb04ee7-ef59-49dc-b419-0d1690acaa77",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "0.8023374568773076"
+      ]
+     },
+     "execution_count": 15,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "norm.cdf(585,500,100)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 33,
+   "id": "3f527bec-6f14-431f-8f54-6e875042c7cd",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "0.758036347776927"
+      ]
+     },
+     "execution_count": 33,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "norm.cdf(0.70)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 34,
+   "id": "6020d101-b61c-41be-a6f8-9d317641fbf7",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "0.6082009554959019"
+      ]
+     },
+     "execution_count": 34,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "norm.cdf(585,500,100)*norm.cdf(0.70)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "3359d3a4-b3df-4237-99fb-cd440c5afd88",
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  }
+ ],
+ "metadata": {
+  "kernelspec": {
+   "display_name": "Python 3 (ipykernel)",
+   "language": "python",
+   "name": "python3"
+  },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 3
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython3",
+   "version": "3.9.7"
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 5
+}
